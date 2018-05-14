@@ -1,5 +1,4 @@
 /*eslint*/
-
 /* app.js
  *
  * This is our RSS feed reader application. It uses the Google
@@ -7,23 +6,20 @@
  * use of. It also uses the Handlebars templating library and
  * jQuery.
  */
-
 // The names and URLs to all of the feeds we'd like available.
-var allFeeds = [
-    {
-        name: 'Udacity Blog',
-        url: 'http://blog.udacity.com/feed'
-    }, {
-        name: 'CSS Tricks',
-        url: 'http://feeds.feedburner.com/CssTricks'
-    }, {
-        name: 'HTML5 Rocks',
-        url: 'http://feeds.feedburner.com/html5rocks'
-    }, {
-        name: 'Linear Digressions',
-        url: 'http://feeds.feedburner.com/udacity-linear-digressions'
-    }
-];
+var allFeeds = [{
+    name: 'Udacity Blog',
+    url: 'http://blog.udacity.com/feed'
+}, {
+    name: 'CSS Tricks',
+    url: 'http://feeds.feedburner.com/CssTricks'
+}, {
+    name: 'HTML5 Rocks',
+    url: 'http://feeds.feedburner.com/html5rocks'
+}, {
+    name: 'Linear Digressions',
+    url: 'http://feeds.feedburner.com/udacity-linear-digressions'
+}];
 
 /* This function starts up our application. The Google Feed
  * Reader API is loaded asynchonously and will then call this
@@ -53,7 +49,7 @@ function loadFeed(id, cb) {
             url: feedUrl
         }),
         contentType: "application/json",
-        success: function (result, status) {
+        success: function(result, status) {
 
             var container = $('.feed'),
                 title = $('.header-title'),
@@ -69,7 +65,7 @@ function loadFeed(id, cb) {
              * entryTemplate (created above using Handlebars) and append
              * the resulting HTML to the list of entries on the page.
              */
-            entries.forEach(function (entry) {
+            entries.forEach(function(entry) {
                 container.append(entryTemplate(entry));
             });
 
@@ -77,7 +73,7 @@ function loadFeed(id, cb) {
                 cb();
             }
         },
-        error: function (result, status, err) {
+        error: function(result, status, err) {
             //run only the callback without attempting to parse result due to error
             if (cb) {
                 cb();
@@ -97,7 +93,7 @@ google.setOnLoadCallback(init);
  * place our code in the $() function to ensure it doesn't execute
  * until the DOM is ready.
  */
-$(function () {
+$(function() {
     var container = $('.feed'),
         feedList = $('.feed-list'),
         feedItemTemplate = Handlebars.compile($('.tpl-feed-list-item').html()),
@@ -110,7 +106,7 @@ $(function () {
      * above using Handlebars) and append it to the list of all
      * available feeds within the menu.
      */
-    allFeeds.forEach(function (feed) {
+    allFeeds.forEach(function(feed) {
         feed.id = feedId;
         feedList.append(feedItemTemplate(feed));
 
@@ -121,7 +117,7 @@ $(function () {
      * the menu, load the feed, and prevent the default action
      * (following the link) from occurring.
      */
-    feedList.on('click', 'a', function () {
+    feedList.on('click', 'a', function() {
         var item = $(this);
 
         $('body').addClass('menu-hidden');
@@ -132,7 +128,7 @@ $(function () {
     /* When the menu icon is clicked on, we need to toggle a class
      * on the body to perform the hiding/showing of our menu.
      */
-    menuIcon.on('click', function () {
+    menuIcon.on('click', function() {
         $('body').toggleClass('menu-hidden');
     });
 }());
