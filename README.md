@@ -1,4 +1,4 @@
-# Udacity Feed Reader
+# Feed Reader Testing
 A web-based application that uses RSS feeds and allows users to read them.
 
 
