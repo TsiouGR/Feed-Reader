@@ -1,10 +1,10 @@
 # Udacity Feed Reader
-A web-based application that reads RSS feeds and allows users to read them.
+A web-based application that uses RSS feeds and allows users to read them.
 
 
 ## How to use
 **[Try the Live version Here!](https://tsiougr.github.io/Feed-Reader/)**
-Click any link to read feed.
+Click a link to read the feed.
 Use the menu to switch between feed sources.
 
 
